@@ -1,1 +1,69 @@
-<p>navbar works!</p>
+<nav class="bg-white shadow-md px-6 py-3 flex justify-between items-center sticky top-0 z-50">
+	<!-- Brand -->
+	<div class="text-xl font-semibold text-indigo-600">prateek.solve</div>
+
+	<div class="relative inline-block text-left">
+		<div>
+			<button type="button"
+				class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50"
+				(click)="toggleDropdown()"
+				id="menu-button" [attr.aria-expanded]="dropdownOpen" aria-haspopup="true">
+				Options
+				<svg class="-mr-1 size-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+					data-slot="icon">
+					<path fill-rule="evenodd"
+						d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+						clip-rule="evenodd" />
+				</svg>
+			</button>
+		</div>
+
+		<!--
+			Dropdown menu, show/hide based on menu state.
+
+			Entering: "transition ease-out duration-100"
+			From: "transform opacity-0 scale-95"
+			To: "transform opacity-100 scale-100"
+			Leaving: "transition ease-in duration-75"
+			From: "transform opacity-100 scale-100"
+			To: "transform opacity-0 scale-95"
+    	-->
+		@if(dropdownOpen) {
+			<div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden"
+				role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+				<div class="py-1" role="none">
+					<!-- Active: "bg-gray-100 text-gray-900 outline-hidden", Not Active: "text-gray-700" -->
+					<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+						id="menu-item-0">Account settings</a>
+					<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+						id="menu-item-1">Support</a>
+					<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+						id="menu-item-2">License</a>
+					<form method="POST" action="#" role="none">
+						<button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700" role="menuitem"
+							tabindex="-1" id="menu-item-3">
+							Sign out
+						</button>
+					</form>
+				</div>
+			</div>
+		}
+	</div>
+	<!-- Navigation Links -->
+	<ul class="hidden md:flex space-x-6 text-gray-700 font-medium text-sm">
+		<li><a href="#overview" class="hover:text-indigo-600">Overview</a></li>
+		<li><a href="#projects" class="hover:text-indigo-600">Projects</a></li>
+		<li><a href="#skills" class="hover:text-indigo-600">Skills</a></li>
+		<li>
+			<a href="/assets/Resume.pdf" target="_blank" class="hover:text-indigo-600">Resume</a>
+		</li>
+		<li><a href="#contact" class="hover:text-indigo-600">Contact</a></li>
+	</ul>
+
+	<!-- Icons -->
+	<div class="flex items-center space-x-4">
+		<a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+			<img src="/assets/github.svg" alt="GitHub" class="w-5 h-5 hover:opacity-75 transition" />
+		</a>
+	</div>
+</nav>
